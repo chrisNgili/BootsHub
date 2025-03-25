@@ -4,11 +4,11 @@ function oneBoot(boot) {
     card.innerHTML = `
         <img src="${boot.image}" alt="${boot.model}" class ="boot-image">
         <h3>${boot.model} </h3>
-        <p>Price: ${boot.price}</p>
-        <p>Sizes: ${boot.sizes.join(', ')}</p>
-        <p>Available:
+        <p class="paragraph">Price: ${boot.price}</p>
+        <p class="paragraph">Sizes: ${boot.sizes.join(', ')}</p>
+        <p class="paragraph">Available:
         <span class= "availability">  ${boot.available}</span> Shoes</p>
-        <p>Description: ${boot.description}</p>
+        <p class="paragraph">Description: ${boot.description}</p>
         <div class="buttons">
             <button> Purchase </button>
         </div>
@@ -59,6 +59,8 @@ function start() {
 }
 
 start();
+
+
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();

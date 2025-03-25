@@ -1,0 +1,21 @@
+body{
+    text-align: center;
+}
+
+
+.boot-image{
+    width: 930px;
+    height: 930px;
+}
+
+
+.paragraph{
+    font-size: 1.5rem;
+}
+
+
+nav{
+    text-align: center;
+    font-size: 30px;
+    flex: auto;
+}
