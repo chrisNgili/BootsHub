@@ -6,8 +6,18 @@ function oneBoot(boot) {
         <h3>${boot.model} </h3>
         <p>Price: ${boot.price}</p>
         <p>Sizes: ${boot.sizes.join(', ')}</p>
-        <p>${boot.description}</p>
+        <p>Available:
+        <span class= "availability">  ${boot.available}</span> Shoes</p>
+        <p>Description: ${boot.description}</p>
+        <div class="buttons">
+            <button> Purchase </button.
+        </div>
     `;
+    card.querySelector(".buttons").addEventListener('click', ()=> {
+        boot.available-= 1
+        card.querySelector('span').textContent = boot.available
+        updateStock(boot)
+    })
 
     
     if (boot.brand.toLowerCase() === "nike") {
@@ -23,6 +33,18 @@ function getBoots() {
     fetch("https://phase1-project-data.onrender.com/boots")
         .then(res => res.json())
         .then(boots => boots.forEach(boot => oneBoot(boot)))  
+}
+
+function updateStock(boot){
+    fetch(`https://phase1-project-data.onrender.com/boots/${boot.id}`,{
+        method: 'PATCH',
+        headers:{
+        'Content-type': 'application/json'
+        },
+    body: JSON.stringify(boot)
+    })
+    .then(res => res.json())
+    .then(boot => console.log(boot))    
 }
 
 function start() {
