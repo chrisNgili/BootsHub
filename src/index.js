@@ -4,7 +4,7 @@ function oneBoot(boot) {
     card.innerHTML = `
         <img src="${boot.image}" alt="${boot.model}">
         <h3>${boot.model} </h3>
-        <p>Price: $${boot.price}</p>
+        <p>Price: ${boot.price}</p>
         <p>Sizes: ${boot.sizes.join(', ')}</p>
         <p>${boot.description}</p>
     `;
