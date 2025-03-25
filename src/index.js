@@ -2,7 +2,7 @@ function oneBoot(boot) {
     let card = document.createElement('li');
     card.className = 'card';
     card.innerHTML = `
-        <img src="${boot.image}" alt="${boot.model}">
+        <img src="${boot.image}" alt="${boot.model}" class ="boot-image">
         <h3>${boot.model} </h3>
         <p>Price: ${boot.price}</p>
         <p>Sizes: ${boot.sizes.join(', ')}</p>
