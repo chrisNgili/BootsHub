@@ -10,13 +10,20 @@ function oneBoot(boot) {
         <span class= "availability">  ${boot.available}</span> Shoes</p>
         <p>Description: ${boot.description}</p>
         <div class="buttons">
-            <button> Purchase </button.
+            <button> Purchase </button>
         </div>
     `;
-    card.querySelector(".buttons").addEventListener('click', ()=> {
-        boot.available-= 1
-        card.querySelector('span').textContent = boot.available
-        updateStock(boot)
+    const purchaseButton = card.querySelector("button")
+    purchaseButton.addEventListener('click', ()=> {   
+        if(boot.available > 0){ 
+            boot.available -= 1
+            card.querySelector('span').textContent = boot.available
+            updateStock(boot)
+        }    
+        purchaseButton.disabled = boot.available <= 0
+        purchaseButton.textContent = boot.available <= 0 ? 'Sold Out'  : 'Purchase'
+        purchaseButton.classList.toggle('sold-out', boot.available <=0 )
+        
     })
 
     
