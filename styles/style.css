@@ -17,6 +17,7 @@ body{
 
 nav{
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     flex: auto;
+    font: 1em sans-serif;
 }
