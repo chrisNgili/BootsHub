@@ -1,5 +1,6 @@
 body{
     text-align: center;
+    /* background-color:rgb(112, 5, 200); */
     
 }
 
@@ -20,4 +21,8 @@ nav{
     font-size: 40px;
     flex: auto;
     font: 1em sans-serif;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: underline;
+    color: chocolate;
 }
