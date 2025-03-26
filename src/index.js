@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () =>{
+
 function oneBoot(boot) {
     let card = document.createElement('li');
     card.className = 'card';
@@ -68,3 +70,81 @@ document.querySelectorAll('nav a').forEach(link => {
         targetSection?.scrollIntoView({ behavior: 'smooth' });
     });
 });
+
+document.querySelector("#donate-shoes").addEventListener('submit', handleDonate)
+
+
+function handleDonate(e){
+    e.preventDefault()
+    let boots ={
+        brand: e.target.brand.value,
+        image: e.target.image_url.value
+    }
+    
+    donateBoot(boots)
+}
+
+
+function donateBoot(boot){
+    fetch('https://phase1-project-data.onrender.com/donations',{
+        method: 'POST',
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            brand: boot.brand,
+            image: boot.image,
+        })
+    })
+    .then(res => res.json())
+    .then(() => {
+        getDonations()
+    })
+    
+}
+
+function deleteBoot(id){
+    fetch(`https://phase1-project-data.onrender.com/donations/${id}`,{
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(boot => console.log(boot))
+}
+
+
+
+function getDonations() {
+    fetch("https://phase1-project-data.onrender.com/donations")
+        .then(res => res.json())
+        .then(donations => {
+            const donationsList = document.querySelector("#donations-list");
+            donationsList.innerHTML = ""; 
+            donations.forEach(boot => {
+                let card2 = document.createElement("li");
+                card2.className = "donation-card";
+                card2.innerHTML = `
+                    <img src="${boot.image}" alt="${boot.brand}">
+                    <h3>${boot.brand}</h3>
+                    <div>
+                    <button id = 'remove'> Remove </button>
+                    </div>
+                `;
+                donationsList.appendChild(card2);
+
+                card2.querySelector('#remove').addEventListener('click', () => {
+                    card2.remove()
+                    deleteBoot(boot.id)
+                })
+            });
+        });
+
+        
+}
+
+
+
+
+})
