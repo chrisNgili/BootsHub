@@ -20,7 +20,7 @@ Offer a platform for footballers who are buying new shoes to donate their alread
 
 * Donate shoes through a form with submit events.
 
-* Interact with buttons such as the buy button which reduces the  number of shoes when clicked.
+* Interact with buttons such as the buy button which updates the  number of shoes when clicked.
 
 * Indicate when shoes are sold out.
 
@@ -46,3 +46,29 @@ I will fetch data from my own custom API which will feature:
 * Styles folder containing all my styling features including my css files and some images and GIFs.
 
 * An HTML folder.
+
+# USAGE
+**Browsing available boots:**
+* Use the navigation bar to switch between Nike, Adidas and Puma boots.
+
+* Click the "Purchase" button to buy a pair of shoes. The available stock will be updated.
+
+**Donating shoes:**
+* Go to the "Donate shoes" section.
+
+* Fill in the "Brand" and "Image Url" fields.
+
+* Click the "Donate shoes" to add your donation.
+
+* Your donation will be displayed on the DOM.
+
+* Click the remove button to remove a donation.
+
+
+# Future Enhancements
+
+* Add a shopping cart feature.
+
+* Implement a search functionality.
+
+* Add a filter to the donation.
