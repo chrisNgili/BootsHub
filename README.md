@@ -47,6 +47,8 @@ I will fetch data from my own custom API which will feature:
 
 * An HTML folder.
 
+* The JavaScript file has sufficient comments describing each function
+
 # USAGE
 **Browsing available boots:**
 * Use the navigation bar to switch between Nike, Adidas and Puma boots.
