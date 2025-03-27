@@ -180,3 +180,20 @@ body {
   #remove:hover {
     background-color: #c82333;
   }
+
+  .gif-animation {
+    display: block;  
+    margin: 0 auto;  
+    width: 100%;  
+    max-width: 800px; 
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.gif-animation {
+    animation: fadeIn 1s ease-in-out;
+}
