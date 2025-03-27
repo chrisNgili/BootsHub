@@ -20,7 +20,7 @@ function oneBoot(boot) {
         </div>
     `;
 
-    // This button reduces the number of available shoes by 1 when pressed.
+    // This button decrements the number of available shoes by 1 when pressed.
     const purchaseButton = card.querySelector("button")
     purchaseButton.addEventListener('click', ()=> {   
         if(boot.available > 0){ 
@@ -34,7 +34,7 @@ function oneBoot(boot) {
         
     })
 
-    // This condition categorizes the shoes according to brand name
+    // This condition checks the boot.brand property and appends the generated card to the appropriate brand list
     if (boot.brand.toLowerCase() === "nike") {
         document.querySelector('#nike-list').appendChild(card);
     } else if (boot.brand.toLowerCase() === "adidas") {
@@ -53,7 +53,8 @@ function getBoots() {
 }
 
 
-// Updates the number of available shoes when the purchase button is pressed
+// Sends a PATCH request to the API to update the available propert of the boot when given the id. Uses JSON.stringify to format the updated boot data and includes necessary headers for the request.
+
 function updateStock(boot){
     fetch(`https://phase1-project-data.onrender.com/boots/${boot.id}`,{
         method: 'PATCH',
@@ -94,7 +95,7 @@ function handleDonate(e){
     donateBoot(boots)
 }
 
-// Creates an object when a shoe is donated
+// Sends a POST request to the API to add a new donated boot.
 function donateBoot(boot){
     fetch('https://phase1-project-data.onrender.com/donations',{
         method: 'POST',
