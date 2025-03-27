@@ -1,5 +1,9 @@
-# BOOTSHUB
+# PROJECT NAME: BOOTSHUB
 Soccer boots selling and donation platform
+
+# AUTHOR NAME: CHRISTOPHER NGILI
+
+# Link to deployed live site: https://boots-hub-chrisngilis-projects.vercel.app/
 
 # VISIONS:
 
@@ -33,3 +37,11 @@ I will fetch data from my own custom API which will feature:
 # CHALLENGES EXPECTED
 
 * Creating a donation platform.
+
+# Code features:
+
+* Src folder containing an index.js which is my JavaScript file.
+
+* Styles folder containing all my styling features including my css files and some images and GIFs.
+
+* 
