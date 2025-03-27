@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () =>{
 
+
+
+
+// This fucntion creates a card for every boot
 function oneBoot(boot) {
     let card = document.createElement('li');
     card.className = 'card';
@@ -15,6 +19,8 @@ function oneBoot(boot) {
             <button> Purchase </button>
         </div>
     `;
+
+    // This button reduces the number of available shoes by 1 when pressed.
     const purchaseButton = card.querySelector("button")
     purchaseButton.addEventListener('click', ()=> {   
         if(boot.available > 0){ 
@@ -28,7 +34,7 @@ function oneBoot(boot) {
         
     })
 
-    
+    // This condition categorizes the shoes according to brand name
     if (boot.brand.toLowerCase() === "nike") {
         document.querySelector('#nike-list').appendChild(card);
     } else if (boot.brand.toLowerCase() === "adidas") {
@@ -38,12 +44,16 @@ function oneBoot(boot) {
     }
 }
 
+
+// This function retrieves the shoes from the API
 function getBoots() {
     fetch("https://phase1-project-data.onrender.com/boots")
         .then(res => res.json())
         .then(boots => boots.forEach(boot => oneBoot(boot)))  
 }
 
+
+// Updates the number of available shoes when the purchase button is pressed
 function updateStock(boot){
     fetch(`https://phase1-project-data.onrender.com/boots/${boot.id}`,{
         method: 'PATCH',
@@ -62,7 +72,7 @@ function start() {
 
 start();
 
-
+// Provides smooth scrolling when an element is pressed on the nav bar
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -84,7 +94,7 @@ function handleDonate(e){
     donateBoot(boots)
 }
 
-
+// Creates an object when a shoe is donated
 function donateBoot(boot){
     fetch('https://phase1-project-data.onrender.com/donations',{
         method: 'POST',
@@ -103,6 +113,9 @@ function donateBoot(boot){
     
 }
 
+
+
+// Provides a delete option to the donated items if a person would like to remove their donations
 function deleteBoot(id){
     fetch(`https://phase1-project-data.onrender.com/donations/${id}`,{
         method: "DELETE",
@@ -115,6 +128,8 @@ function deleteBoot(id){
 }
 
 
+
+// Creates a card for all donations and adds the remove button
 
 function getDonations() {
     fetch("https://phase1-project-data.onrender.com/donations")
