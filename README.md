@@ -6,6 +6,8 @@ Soccer boots selling and donation platform
 
 # Link to deployed live site: https://boots-hub-chrisngilis-projects.vercel.app/
 
+# Link to YouTube presentation: https://youtu.be/XFrPzGFb6z4?si=1UxanEpynteytWGq
+
 # VISIONS:
 
 Offer a platform to sell the latest soccer boots at an affordable price to the rising number of footballers.
